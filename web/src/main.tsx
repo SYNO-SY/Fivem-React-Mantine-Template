@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
-import App from "./components/ButtonComp";
+import App from "./App";
 import ConfigProvider from "./providers/ConfigProvider";
 import { isEnvBrowser } from "./utils/misc";
 import { VisibilityProvider } from "./providers/VisibilityProvider";
