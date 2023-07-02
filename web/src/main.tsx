@@ -1,9 +1,10 @@
-import { MantineProvider } from "@mantine/core";
 import React from "react";
 import ReactDOM from "react-dom/client";
-import App from "./App";
 import "./index.css";
+import App from "./components/ButtonComp";
+import ConfigProvider from "./providers/ConfigProvider";
 import { isEnvBrowser } from "./utils/misc";
+import { VisibilityProvider } from "./providers/VisibilityProvider";
 
 if (isEnvBrowser()) {
   const root = document.getElementById("root");
@@ -15,10 +16,13 @@ if (isEnvBrowser()) {
   root!.style.backgroundPosition = "center";
 }
 
-ReactDOM.createRoot(document.getElementById("root")!).render(
+const root = document.getElementById("root");
+ReactDOM.createRoot(root!).render(
   <React.StrictMode>
-    <MantineProvider theme={{ colorScheme: "dark" }}>
-      <App />
-    </MantineProvider>
+    <ConfigProvider>
+      <VisibilityProvider>
+        <App />
+      </VisibilityProvider>
+    </ConfigProvider>
   </React.StrictMode>,
 );
