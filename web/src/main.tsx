@@ -5,6 +5,14 @@ import App from "./App";
 import ConfigProvider from "./providers/ConfigProvider";
 import { isEnvBrowser } from "./utils/misc";
 import { VisibilityProvider } from "./providers/VisibilityProvider";
+import { debugData } from "./utils/debugData";
+
+debugData([
+  {
+    action: "setVisible",
+    data: "show-ui",
+  },
+]);
 
 if (isEnvBrowser()) {
   const root = document.getElementById("root");
