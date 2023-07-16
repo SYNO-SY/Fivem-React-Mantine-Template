@@ -12,6 +12,7 @@ lua54 'yes'
 
 ui_page 'web/build/index.html'
 
+shared_script "shared/**/*"
 client_script "client/**/*"
 server_script "server/**/*"
 
