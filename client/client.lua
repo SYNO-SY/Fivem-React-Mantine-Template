@@ -1,4 +1,4 @@
-ESX = exports["es_extended"]:getSharedObject()
+local ESX = exports["es_extended"]:getSharedObject()
 
 local function OpenNui(arg)
   SetNuiFocus(arg, arg)
@@ -20,4 +20,12 @@ end)
 RegisterNUICallback('getPlayerMoney', function(data, cb)
   local money = ESX.PlayerData.money
   cb(money)
+end)
+
+
+RegisterNUICallback('getConfig', function(_, cb)
+  cb({
+    primaryColor = Config.PrimaryColor,
+    primaryShade = Config.PrimaryShade
+  })
 end)

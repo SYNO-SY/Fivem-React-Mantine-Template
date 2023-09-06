@@ -2,7 +2,7 @@ import { fetchNui } from "./utils/fetchNui";
 import { theme } from "./theme";
 import { MantineProvider } from "@mantine/core";
 import { useConfig } from "./providers/ConfigProvider";
-import Test from "./components/ButtonComp";
+import AppComp from "./components/AppComp";
 
 const App: React.FC = () => {
   const { config } = useConfig();
@@ -12,7 +12,7 @@ const App: React.FC = () => {
       withNormalizeCSS
       withGlobalStyles
       theme={{ ...theme, ...config }}>
-      <Test></Test>
+      <AppComp></AppComp>
     </MantineProvider>
   );
 };

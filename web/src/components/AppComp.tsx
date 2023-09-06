@@ -23,7 +23,7 @@ const useStyles = createStyles((theme) => ({
   },
 }));
 
-export default function ButtonComp() {
+export default function AppComp() {
   const { classes } = useStyles();
   const [money, setMoney] = useState<any>("0");
   const handleGetPlayerMoney = () => {
