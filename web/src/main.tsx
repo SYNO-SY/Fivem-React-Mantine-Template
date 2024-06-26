@@ -1,11 +1,14 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
+import "@mantine/core/styles.css";
 import App from "./App";
-import ConfigProvider from "./providers/ConfigProvider";
 import { isEnvBrowser } from "./utils/misc";
 import { VisibilityProvider } from "./providers/VisibilityProvider";
 import { debugData } from "./utils/debugData";
+import { theme } from "./theme";
+import { MantineProvider } from "@mantine/core";
+import LocaleProvider from "./providers/LocaleProvider";
 
 debugData([
   {
@@ -25,12 +28,15 @@ if (isEnvBrowser()) {
 }
 
 const root = document.getElementById("root");
+
 ReactDOM.createRoot(root!).render(
   <React.StrictMode>
-    <ConfigProvider>
-      <VisibilityProvider>
-        <App />
-      </VisibilityProvider>
-    </ConfigProvider>
+    <VisibilityProvider>
+      <LocaleProvider>
+        <MantineProvider theme={{ ...theme }}>
+          <App></App>
+        </MantineProvider>
+      </LocaleProvider>
+    </VisibilityProvider>
   </React.StrictMode>,
 );

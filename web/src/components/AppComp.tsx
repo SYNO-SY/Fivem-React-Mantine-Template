@@ -6,25 +6,20 @@ import {
   Flex,
   Group,
   Text,
-  createStyles,
-  rem,
 } from "@mantine/core";
 import { useState } from "react";
 import { fetchNui } from "../utils/fetchNui";
-import { IconX } from "@tabler/icons-react";
+import { useLocales } from "../providers/LocaleProvider";
+import classes from "./App.module.css";
 
-const useStyles = createStyles((theme) => ({
-  center: {
-    borderRadius: 10,
-    position: "fixed",
-    top: "50%",
-    left: "50%",
-    transform: "translate(-50%, -50%)",
-  },
-}));
+// icons
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faX } from "@fortawesome/free-solid-svg-icons";
 
 export default function AppComp() {
-  const { classes } = useStyles();
+  // locale provider
+  const { locale } = useLocales();
+  // state Handler for money
   const [money, setMoney] = useState<any>("0");
   const handleGetPlayerMoney = () => {
     fetchNui("getPlayerMoney")
@@ -44,14 +39,14 @@ export default function AppComp() {
 
   return (
     <Box
-      className={classes.center}
+      className={classes.app_container}
       py={10}
       h={360}
       w={330}
       bg={"#25262b"}
       mx='auto'>
       <Group
-        position='right'
+        justify='end'
         px={8}>
         <ActionIcon
           color='yellow'
@@ -59,7 +54,7 @@ export default function AppComp() {
           radius='md'
           variant='light'
           onClick={handleClose}>
-          <IconX size='1.625rem' />
+          <FontAwesomeIcon icon={faX} />
         </ActionIcon>
       </Group>
       <Center className={classes.center}>
@@ -74,23 +69,19 @@ export default function AppComp() {
             variant='light'
             radius='xl'
             size='xl'
-            styles={{
-              root: { paddingRight: rem(14), height: rem(48) },
-              rightIcon: { marginLeft: rem(22) },
-            }}
             onClick={handleGetPlayerMoney}>
-            Click To Get Player Money
+            {locale.ui_buttonText}
           </Button>
           <Text
             ta='center'
             c='white'
             size='xl'
             px={6}
-            sx={{ borderRadius: 5 }}
             bg={"#4a4a4a"}
             fw={700}
             fz='xl'>
-            Player Money<br></br>:{""}
+            {locale.ui_playerMoney}
+            <br></br>:{""}
             {money}
           </Text>
           <Button
@@ -98,9 +89,9 @@ export default function AppComp() {
             color='cyan'
             radius='md'
             size='md'
-            uppercase
+            tt={"uppercase"}
             onClick={handleReset}>
-            Reset
+            {locale.ui_reset}
           </Button>
         </Flex>
       </Center>

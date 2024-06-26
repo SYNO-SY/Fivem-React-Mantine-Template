@@ -4,17 +4,21 @@
   "private": true,
   "version": "0.1.0",
   "scripts": {
-    "start": "vite",
+    "dev": "vite",
     "start:game": "vite build --watch",
     "build": "tsc && vite build",
     "preview": "vite preview"
   },
   "dependencies": {
     "@emotion/react": "^11.11.1",
-    "@mantine/core": "^6.0.15",
-    "@mantine/hooks": "^6.0.15",
-    "@tabler/icons-react": "^2.23.0",
-    "react": "^18.2.0",
+    "@fortawesome/fontawesome-svg-core": "^6.3.0",
+    "@fortawesome/free-brands-svg-icons": "^6.3.0",
+    "@fortawesome/free-regular-svg-icons": "^6.3.0",
+    "@fortawesome/free-solid-svg-icons": "^6.3.0",
+    "@fortawesome/react-fontawesome": "^0.1.19",
+    "@mantine/core": "^7.10.2",
+    "@mantine/hooks": "^7.10.2",
+    "react": "^18.3.1",
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
