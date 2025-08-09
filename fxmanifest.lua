@@ -12,11 +12,14 @@ lua54 'yes'
 
 ui_page 'web/build/index.html'
 
-shared_script "shared/**/*"
+shared_scripts {
+  '@ox_lib/init.lua', "shared/**/*"
+}
 client_script "client/**/*"
 server_script "server/**/*"
 
 files {
+  'locales/*.json',
   'web/build/index.html',
   'web/build/**/*',
 }
