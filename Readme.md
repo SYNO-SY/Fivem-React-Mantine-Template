@@ -1,10 +1,9 @@
-
 ## Requirements
-* [Node > v10.6](https://nodejs.org/en/)
-* [Yarn](https://yarnpkg.com/getting-started/install) (Preferred but not required)
 
-*A basic understanding of the modern web development workflow. If you don't 
-know this yet, React might not be for you just yet.*
+- [Node > v10.6](https://nodejs.org/en/)
+
+_A basic understanding of the modern web development workflow. If you don't
+know this yet, React might not be for you just yet._
 
 ## Getting Started
 
@@ -13,13 +12,8 @@ it within your `resources` folder
 
 ### Installation
 
-*The boilerplate was made using `yarn` but is still compatible with
-`npm`.*
-
 Install dependencies by navigating to the `web` folder within
-a terminal of your choice and type `npm i` or `yarn`.
-
-
+a terminal of your choice and type `npm i`.
 
 **Hot Builds In-Game**
 
@@ -29,9 +23,8 @@ script but it writes to disk. Meaning all that is required is a
 resource restart to update the game script
 
 **Usage**
+
 ```sh
-# yarn
-yarn start:game
 # npm
 npm run start:game
 ```
@@ -45,7 +38,7 @@ You can do this by running the following:
 
 ```sh
 npm run build
-yarn build 
 ```
+
 This is purely not my stuff  
 credits:- https://github.com/project-error/fivem-react-boilerplate-lua

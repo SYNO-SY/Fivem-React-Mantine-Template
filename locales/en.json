@@ -1,4 +1,5 @@
 {
-  "ui_heading": "garage",
-  "ui_back": "Back"
+  "ui_playerMoney": "Player Money",
+  "ui_buttonText": "Click to Get Player Money",
+  "ui_reset": "reset"
 }

@@ -1,0 +1,46 @@
+name: Auto Update Dependencies
+
+on:
+  schedule:
+    - cron: "0 0 * * *" # Runs every day at midnight UTC
+  workflow_dispatch: # Allow manual trigger
+
+jobs:
+  update-deps:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1. Checkout repository
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      # 2. Setup Node.js
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: "npm"
+
+      # 3. Install npm-check-updates
+      - name: Install npm-check-updates
+        run: npm install -g npm-check-updates
+
+      # 4. Update dependencies in package.json
+      - name: Update package.json dependencies
+        run: ncu -u
+
+      # 5. Install updated dependencies
+      - name: Install updated dependencies
+        run: npm install
+
+      # 6. Commit & push changes
+      - name: Commit and Push changes
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add package.json package-lock.json
+          if git commit -m "chore: update dependencies"; then
+            git push
+          else
+            echo "No changes to commit"
+          fi

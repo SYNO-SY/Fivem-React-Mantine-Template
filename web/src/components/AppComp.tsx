@@ -11,10 +11,10 @@ import { useState } from "react";
 import { fetchNui } from "../utils/fetchNui";
 import { useLocales } from "../providers/LocaleProvider";
 import classes from "./App.module.css";
+import { Icon } from "@iconify/react";
 
 // icons
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faX } from "@fortawesome/free-solid-svg-icons";
+const closeIcon = <Icon icon="gg:close-o" width="24" height="24" />;
 
 export default function AppComp() {
   // locale provider
@@ -54,7 +54,7 @@ export default function AppComp() {
           radius='md'
           variant='light'
           onClick={handleClose}>
-          <FontAwesomeIcon icon={faX} />
+          {closeIcon}
         </ActionIcon>
       </Group>
       <Center className={classes.center}>

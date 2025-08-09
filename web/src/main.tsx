@@ -6,7 +6,7 @@ import App from "./App";
 import { isEnvBrowser } from "./utils/misc";
 import { VisibilityProvider } from "./providers/VisibilityProvider";
 import { debugData } from "./utils/debugData";
-import { theme } from "./theme";
+import { theme } from "./theme/theme";
 import { MantineProvider } from "@mantine/core";
 import LocaleProvider from "./providers/LocaleProvider";
 
@@ -26,10 +26,7 @@ if (isEnvBrowser()) {
   root!.style.backgroundRepeat = "no-repeat";
   root!.style.backgroundPosition = "center";
 }
-
-const root = document.getElementById("root");
-
-ReactDOM.createRoot(root!).render(
+ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>
     <VisibilityProvider>
       <LocaleProvider>
@@ -38,5 +35,5 @@ ReactDOM.createRoot(root!).render(
         </MantineProvider>
       </LocaleProvider>
     </VisibilityProvider>
-  </React.StrictMode>,
+  </React.StrictMode>
 );
