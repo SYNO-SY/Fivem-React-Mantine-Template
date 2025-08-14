@@ -26,7 +26,7 @@ jobs:
         with:
           node-version: 22
           cache: "npm"
-          cache-dependency-path: web/package-lock.json
+          cache-dependency-path: web/yarn.lock
 
       # 3. Install npm-check-updates
       - name: Install npm-check-updates
