@@ -38,7 +38,7 @@ jobs:
 
       # 5. Install updated dependencies
       - name: Install updated dependencies
-        run: yarn install --frozen-lockfile
+        run: yarn install
 
       # 6. Commit & push changes
       - name: Commit and Push changes
