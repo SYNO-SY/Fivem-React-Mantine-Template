@@ -3,21 +3,24 @@ name: Auto Update Dependencies
 on:
   schedule:
     - cron: "0 0 * * *" # Runs every day at midnight UTC
-  workflow_dispatch:
+  workflow_dispatch: # Allow manual trigger
+
+permissions:
+  contents: write # Needed for pushing changes
 
 jobs:
   update-deps:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: web
+        working-directory: web # Run everything inside /web
 
     steps:
       # 1. Checkout repository
       - name: Checkout
         uses: actions/checkout@v4
 
-      # 2. Setup Node.js
+      # 2. Setup Node.js with correct cache path
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
@@ -44,7 +47,7 @@ jobs:
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git add package.json package-lock.json
           if git commit -m "chore: update dependencies"; then
-            git push
+            git push https://x-access-token:${{ secrets.GITHUB_TOKEN }} HEAD:${{ github.ref }}
           else
             echo "No changes to commit"
           fi
