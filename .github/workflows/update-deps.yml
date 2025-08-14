@@ -28,9 +28,9 @@ jobs:
           cache: "yarn"
           cache-dependency-path: web/yarn.lock
 
-      # 3. Install npm-check-updates
-      - name: Install npm-check-updates
-        run: yarn global add npm-check-updates
+      # 3. Install dependencies
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
 
       # 4. Update dependencies in package.json
       - name: Update package.json dependencies
