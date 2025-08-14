@@ -34,7 +34,7 @@ jobs:
 
       # 4. Update dependencies in package.json
       - name: Update package.json dependencies
-        run: ncu -u
+        run: npx npm-check-updates -u
 
       # 5. Install updated dependencies
       - name: Install updated dependencies
