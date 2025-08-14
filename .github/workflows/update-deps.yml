@@ -20,17 +20,17 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      # 2. Setup Node.js with correct cache path
+      # 2. Setup Node.js
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 20.19.1
-          cache: "npm"
-          cache-dependency-path: web/package-lock.json
+          node-version: 22.11.0
+          cache: "yarn"
+          cache-dependency-path: web/yarn.lock
 
       # 3. Install npm-check-updates
       - name: Install npm-check-updates
-        run: npm install -g npm-check-updates
+        run: yarn global add npm-check-updates
 
       # 4. Update dependencies in package.json
       - name: Update package.json dependencies
@@ -38,14 +38,14 @@ jobs:
 
       # 5. Install updated dependencies
       - name: Install updated dependencies
-        run: npm install
+        run: yarn install --frozen-lockfile
 
       # 6. Commit & push changes
       - name: Commit and Push changes
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git add package.json package-lock.json
+          git add package.json yarn.lock
           if git commit -m "chore: update dependencies"; then
             git push https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }} HEAD:${{ github.ref_name }}
           else

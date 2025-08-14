@@ -1,7 +1,7 @@
-import { Context, createContext, useContext, useEffect, useState } from "react";
-import { useNuiEvent } from "../hooks/useNuiEvent";
-import { fetchNui } from "../utils/fetchNui";
-import { debugData } from "../utils/debugData";
+import { Context, createContext, useContext, useEffect, useState } from 'react';
+import { useNuiEvent } from '../hooks/useNuiEvent';
+import { debugData } from '../utils/debugData';
+import { fetchNui } from '../utils/fetchNui';
 
 interface Locale {
   ui_playerMoney: string;
@@ -12,15 +12,15 @@ interface Locale {
 debugData(
   [
     {
-      action: "setLocale",
+      action: 'setLocale',
       data: {
-        ui_playerMoney: "Player Money",
-        ui_buttonText: "Click to Get Player Money",
-        ui_reset: "reset",
+        ui_playerMoney: 'Player Money',
+        ui_buttonText: 'Click to Get Player Money',
+        ui_reset: 'reset',
       },
     },
   ],
-  2000,
+  2000
 );
 
 interface LocaleContextValue {
@@ -30,26 +30,20 @@ interface LocaleContextValue {
 
 const LocaleCtx = createContext<LocaleContextValue | null>(null);
 
-const LocaleProvider: React.FC<{ children: React.ReactNode }> = ({
-  children,
-}) => {
+const LocaleProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [locale, setLocale] = useState<Locale>({
-    ui_playerMoney: "",
-    ui_buttonText: "",
-    ui_reset: "",
+    ui_playerMoney: '',
+    ui_buttonText: '',
+    ui_reset: '',
   });
 
   useEffect(() => {
-    fetchNui("loadLocale");
+    fetchNui('loadLocale');
   }, []);
 
-  useNuiEvent("setLocale", async (data: Locale) => setLocale(data));
+  useNuiEvent('setLocale', async (data: Locale) => setLocale(data));
 
-  return (
-    <LocaleCtx.Provider value={{ locale, setLocale }}>
-      {children}
-    </LocaleCtx.Provider>
-  );
+  return <LocaleCtx.Provider value={{ locale, setLocale }}>{children}</LocaleCtx.Provider>;
 };
 
 export default LocaleProvider;
