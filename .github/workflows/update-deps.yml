@@ -5,27 +5,30 @@ on:
     - cron: "0 0 * * *" # Runs every day at midnight UTC
   workflow_dispatch:
 
+permissions:
+  contents: write # Needed for pushing changes
+
 jobs:
   update-deps:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: web
+        working-directory: web # Run everything inside /web
 
     steps:
       # 1. Checkout repository
       - name: Checkout
         uses: actions/checkout@v4
 
-      # 2. Setup Node.js
+      # 2. Setup Node.js with Yarn cache
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 22
-          cache: "npm"
-          cache-dependency-path: web/package-lock.json
+          node-version: 20
+          cache: "yarn"
+          cache-dependency-path: web/yarn.lock
 
-      # 3. Install npm-check-updates
+      # 3. Install npm-check-updates (works with Yarn too)
       - name: Install npm-check-updates
         run: npm install -g npm-check-updates
 
@@ -33,18 +36,18 @@ jobs:
       - name: Update package.json dependencies
         run: ncu -u
 
-      # 5. Install updated dependencies
+      # 5. Install updated dependencies using Yarn
       - name: Install updated dependencies
-        run: npm install
+        run: yarn install --frozen-lockfile
 
       # 6. Commit & push changes
       - name: Commit and Push changes
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git add package.json package-lock.json
+          git add package.json yarn.lock
           if git commit -m "chore: update dependencies"; then
-            git push
+            git push https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }} HEAD:${{ github.ref_name }}
           else
             echo "No changes to commit"
           fi
