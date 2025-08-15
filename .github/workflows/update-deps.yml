@@ -36,9 +36,9 @@ jobs:
       - name: Update package.json dependencies
         run: ncu -u
 
-      # 5. Install updated dependencies using Yarn
+      # 5. Install updated dependencies using Yarn Berry flags
       - name: Install updated dependencies
-        run: yarn install --frozen-lockfile
+        run: yarn install --immutable --immutable-cache
 
       # 6. Commit & push changes
       - name: Commit and Push changes
