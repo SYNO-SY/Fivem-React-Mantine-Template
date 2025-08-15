@@ -1,6 +1,6 @@
 ## Requirements
 
-- [Node > v10.6](https://nodejs.org/en/)
+- [Node > v20.11](https://nodejs.org/en/)
 
 _A basic understanding of the modern web development workflow. If you don't
 know this yet, React might not be for you just yet._
@@ -13,20 +13,20 @@ it within your `resources` folder
 ### Installation
 
 Install dependencies by navigating to the `web` folder within
-a terminal of your choice and type `npm i`.
+a terminal of your choice and type `yarn install`.
 
 **Hot Builds In-Game**
 
 When developing in-game, you can use the hot build system by
-running the `start:game` script. This is essentially the start
+running the `yarn run start:game` script. This is essentially the start
 script but it writes to disk. Meaning all that is required is a
 resource restart to update the game script
 
-**Usage**
+**Usage in-web development**
 
 ```sh
-# npm
-npm run start:game
+# yarn
+yarn run dev
 ```
 
 **Production Builds**
@@ -37,7 +37,7 @@ must create a production build that is optimized and minimized.
 You can do this by running the following:
 
 ```sh
-npm run build
+yarn run build
 ```
 
 This is purely not my stuff  
