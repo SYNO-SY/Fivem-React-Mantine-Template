@@ -38,7 +38,7 @@ jobs:
 
       # 5. Install updated dependencies (allow lockfile update)
       - name: Install updated dependencies
-        run: yarn install --force
+        run: yarn install --mode=update-lockfile
 
       # 6. Commit & push changes
       - name: Commit and Push changes
