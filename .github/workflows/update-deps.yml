@@ -34,11 +34,11 @@ jobs:
 
       # 4. Update dependencies in package.json
       - name: Update package.json dependencies
-        run: ncu -u
+        run: ncu -u 
 
-      # 5. Install updated dependencies using Yarn Berry flags
+      # 5. Install updated dependencies (allow lockfile update)
       - name: Install updated dependencies
-        run: yarn install
+        run: yarn install --force
 
       # 6. Commit & push changes
       - name: Commit and Push changes
