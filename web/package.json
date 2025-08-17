@@ -12,8 +12,8 @@
     "prettier": "prettier --check \"**/*.{ts,tsx}\""
   },
   "dependencies": {
-    "@mantine/core": "8.2.4",
-    "@mantine/hooks": "8.2.4",
+    "@mantine/core": "8.2.5",
+    "@mantine/hooks": "8.2.5",
     "react": "^19.1.1",
     "react-dom": "^19.1.1"
   },
