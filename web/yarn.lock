@@ -563,9 +563,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@mantine/core@npm:8.2.5":
-  version: 8.2.5
-  resolution: "@mantine/core@npm:8.2.5"
+"@mantine/core@npm:8.2.7":
+  version: 8.2.7
+  resolution: "@mantine/core@npm:8.2.7"
   dependencies:
     "@floating-ui/react": "npm:^0.26.28"
     clsx: "npm:^2.1.1"
@@ -574,19 +574,19 @@ __metadata:
     react-textarea-autosize: "npm:8.5.9"
     type-fest: "npm:^4.27.0"
   peerDependencies:
-    "@mantine/hooks": 8.2.5
+    "@mantine/hooks": 8.2.7
     react: ^18.x || ^19.x
     react-dom: ^18.x || ^19.x
-  checksum: 10c0/2268218faa02ecfb07819f6fb73426bf32049a3769ee6b1d1be46bdd3fb913ff14518692213a762a1ceccf6245572a5600052572f50b02c201e388475427657a
+  checksum: 10c0/d10ba6ef7ac552b6bd5638b9a16c4d2405391102330d94c8df7a7d87756cdf4ec341a350eab252575eb5990f43dc4122ea13244753a9169338a43d2b996f7594
   languageName: node
   linkType: hard
 
-"@mantine/hooks@npm:8.2.5":
-  version: 8.2.5
-  resolution: "@mantine/hooks@npm:8.2.5"
+"@mantine/hooks@npm:8.2.7":
+  version: 8.2.7
+  resolution: "@mantine/hooks@npm:8.2.7"
   peerDependencies:
     react: ^18.x || ^19.x
-  checksum: 10c0/acd6d56703b19032ecced897c26dfb5ee7ff630c51cccfcaa2a9fa3251607432be0e984c8f8715456b4fa0c6647d48b4c240aa72d5eed78dbc358ec445b1f791
+  checksum: 10c0/54dfbc36acad9dbb5e3a29d0944041f7ff31e61416cbd26ecf97c37c3a779a1b0028e05a0e6daa44cf3c3c2406c50b8f2107eb6fee3cfb6647b7524965556686
   languageName: node
   linkType: hard
 
@@ -823,12 +823,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react@npm:^19.1.10":
-  version: 19.1.10
-  resolution: "@types/react@npm:19.1.10"
+"@types/react@npm:^19.1.11":
+  version: 19.1.11
+  resolution: "@types/react@npm:19.1.11"
   dependencies:
     csstype: "npm:^3.0.2"
-  checksum: 10c0/fb583deacd0a815e2775dc1b9f764532d8cacb748ddd2c2914805a46c257ce6c237b4078f44009692074db212ab61a390301c6470f07f5aa5bfdeb78a2acfda1
+  checksum: 10c0/639b225c2bbcd4b8a30e1ea7a73aec81ae5b952a4c432460b48c9881c9d12e76645c9032d24f15eefae9985a12d5cb26557fe10e9850b2da0fabfb0a1e2d16bd
   languageName: node
   linkType: hard
 
@@ -2236,9 +2236,9 @@ __metadata:
   dependencies:
     "@ianvs/prettier-plugin-sort-imports": "npm:^4.6.2"
     "@iconify/react": "npm:^6.0.0"
-    "@mantine/core": "npm:8.2.5"
-    "@mantine/hooks": "npm:8.2.5"
-    "@types/react": "npm:^19.1.10"
+    "@mantine/core": "npm:8.2.7"
+    "@mantine/hooks": "npm:8.2.7"
+    "@types/react": "npm:^19.1.11"
     "@types/react-dom": "npm:^19.1.7"
     "@vitejs/plugin-react": "npm:^5.0.1"
     postcss: "npm:^8.5.6"
